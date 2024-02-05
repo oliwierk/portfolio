@@ -1,24 +1,27 @@
-import './style.css'
-import javascriptLogo from './javascript.svg'
-import viteLogo from '/vite.svg'
-import { setupCounter } from './counter.js'
+document.addEventListener("DOMContentLoaded", () => {
+	const themeToggles = document.querySelectorAll(".theme-controller");
 
-document.querySelector('#app').innerHTML = `
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="${viteLogo}" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
-      <img src="${javascriptLogo}" class="logo vanilla" alt="JavaScript logo" />
-    </a>
-    <h1>Hello Vite!</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
-    </div>
-    <p class="read-the-docs">
-      Click on the Vite logo to learn more
-    </p>
-  </div>
-`
+	// Sprawdź stan z localStorage i zaktualizuj radio buttons
+	const isDark = JSON.parse(localStorage.getItem("isdark"));
 
-setupCounter(document.querySelector('#counter'))
+	themeToggles.forEach(toggle => {
+		if (
+			(isDark && toggle.value === "dark") ||
+			(!isDark && toggle.value === "light")
+		) {
+			toggle.checked = true;
+		}
+	});
+
+	// Aktualizacja klasy body na podstawie stanu
+	document.body.classList.toggle("dark", isDark);
+
+	themeToggles.forEach(toggle => {
+		toggle.addEventListener("change", () => {
+			const isDark = toggle.value === "dark";
+			localStorage.setItem("isdark", JSON.stringify(isDark));
+			// Opcjonalnie: Zaktualizuj ciało dokumentu, aby odzwierciedlić zmianę motywu
+			document.body.classList.toggle("dark", isDark);
+		});
+	});
+});
