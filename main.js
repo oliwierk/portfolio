@@ -20,8 +20,16 @@ document.addEventListener("DOMContentLoaded", () => {
 		toggle.addEventListener("change", () => {
 			const isDark = toggle.value === "dark";
 			localStorage.setItem("isdark", JSON.stringify(isDark));
-			// Opcjonalnie: Zaktualizuj ciało dokumentu, aby odzwierciedlić zmianę motywu
 			document.body.classList.toggle("dark", isDark);
 		});
 	});
 });
+
+function navigation() {
+	return {
+		currentPath: "",
+		getCurrentPath() {
+			this.currentPath = window.location.pathname;
+		},
+	};
+}

@@ -1,18 +1,38 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl" data-theme="black">
 	<head>
 		<meta charset="UTF-8" />
 		<link rel="icon" type="image/svg+xml" href="/vite.svg" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Vite App</title>
+		<title>Timeline</title>
 		<link rel="stylesheet" href="./style.css" />
 	</head>
 	<body>
 		<div class="w-full h-screen p-5 lg:p-8 fixed">
-			<p class="absolute -left-1 bottom-12 -rotate-90 font-thin">LIGHT</p>
-			<button class="absolute -left-1 bottom-28 -rotate-90 font-thin">
+			<label
+				class="absolute -left-3 bottom-14 -rotate-90 font-thin cursor-pointer"
+			>
+				LIGHT
+				<input
+					type="radio"
+					name="theme"
+					value="light"
+					class="theme-controller"
+					checked
+				/>
+			</label>
+			<label
+				class="absolute -left-2.5 bottom-32 -rotate-90 font-thin cursor-pointer"
+			>
 				DARK
-			</button>
+				<input
+					type="radio"
+					name="theme"
+					value="dark"
+					class="theme-controller"
+				/>
+			</label>
+
 			<div
 				class="w-full h-full p-5 lg:p-8 border-2 border-neutral-700 relative"
 				id="threejs-background"
@@ -34,14 +54,19 @@
 					>
 					<a
 						class="font-bold text-sm hover:text-neutral-400 transition-colors duration-300"
-						href=""
+						href="/timeline.html"
 						>Timeline</a
 					>
 					<a
 						class="font-bold text-sm hover:text-neutral-400 transition-colors duration-300"
-						href=""
+						href="/contact.html"
 						>Contact</a
 					>
+				</div>
+				<div
+					class="w-1/2 text-right flex flex-col gap-6 absolute right-5 lg:right-8"
+				>
+					<p>Timeline</p>
 				</div>
 			</div>
 		</div>

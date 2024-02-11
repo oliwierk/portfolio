@@ -1,15 +1,53 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl" data-theme="black">
 	<head>
 		<meta charset="UTF-8" />
 		<link rel="icon" type="image/svg+xml" href="/vite.svg" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Vite App</title>
+		<title>Projects</title>
 		<link rel="stylesheet" href="./style.css" />
+		<style>
+			/* Ukryj pasek przewijania dla wszystkich przeglądarek */
+			.custom-scrollbar::-webkit-scrollbar {
+				display: none; /* dla przeglądarek opartych na WebKit, np. Safari, Chrome */
+			}
+
+			.custom-scrollbar {
+				-ms-overflow-style: none; /* IE i Edge */
+				scrollbar-width: none; /* Firefox */
+			}
+		</style>
 	</head>
-	<body>
-		<div class="w-full h-screen p-5 lg:p-8">
-			<div class="w-full h-full p-5 lg:p-8 border-2 border-slate-900 relative">
+	<body class="overflow-hidden">
+		<div class="w-full h-screen p-5 lg:p-8 fixed overflow-hidden">
+			<label
+				class="absolute -left-3 bottom-14 -rotate-90 font-thin cursor-pointer"
+			>
+				LIGHT
+				<input
+					type="radio"
+					name="theme"
+					value="light"
+					class="theme-controller"
+					checked
+				/>
+			</label>
+			<label
+				class="absolute -left-2.5 bottom-32 -rotate-90 font-thin cursor-pointer"
+			>
+				DARK
+				<input
+					type="radio"
+					name="theme"
+					value="dark"
+					class="theme-controller"
+				/>
+			</label>
+
+			<div
+				class="w-full h-full p-5 lg:p-8 border-2 border-neutral-700 relative overflow-hidden"
+				id="threejs-background"
+			>
 				<h1 class="text-3xl lg:text-7xl tracking-wider font-thin">
 					Oliwier Kotlicki
 				</h1>
@@ -27,37 +65,52 @@
 					>
 					<a
 						class="font-bold text-sm hover:text-neutral-400 transition-colors duration-300"
-						href=""
+						href="/timeline.html"
 						>Timeline</a
 					>
 					<a
 						class="font-bold text-sm hover:text-neutral-400 transition-colors duration-300"
-						href=""
+						href="/contact.html"
 						>Contact</a
 					>
 				</div>
 				<div
-					class="w-1/2 text-right flex flex-col gap-6 absolute right-5 lg:right-8"
+					class="w-1/2 text-right flex flex-col gap-6 absolute right-5 lg:right-8 overflow-y-auto h-1/2 lg:h-3/4 custom-scrollbar"
 				>
 					<p class="text-xs lg:text-sm font-bold">
 						Now / Web App
-						<span class="text-3xl lg:text-6xl font-thin">Meritum Shop</span>
+						<span
+							class="text-3xl lg:text-6xl font-thin hover:text-neutral-500 cursor-pointer duration-300 transition-colors"
+							>Meritum Shop</span
+						>
 					</p>
 					<p class="text-xs lg:text-sm font-bold">
 						Oct. 2023 / Mobile App
-						<span class="text-3xl lg:text-6xl font-thin">TimeBus</span>
+						<span
+							class="text-3xl lg:text-6xl font-thin hover:text-neutral-500 cursor-pointer duration-300 transition-colors"
+							>TimeBus</span
+						>
 					</p>
 					<p class="text-xs lg:text-sm font-bold">
 						Aug. 2023 / Mobile App
-						<span class="text-3xl lg:text-6xl font-thin">MyCalorieBuddy</span>
+						<span
+							class="text-3xl lg:text-6xl font-thin hover:text-neutral-500 cursor-pointer duration-300 transition-colors"
+							>MyCalorieBuddy</span
+						>
 					</p>
 					<p class="text-xs lg:text-sm font-bold">
 						Aug. 2023 / Mobile App
-						<span class="text-3xl lg:text-6xl font-thin">MyCalorieBuddy</span>
+						<span
+							class="text-3xl lg:text-6xl font-thin hover:text-neutral-500 cursor-pointer duration-300 transition-colors"
+							>MyCalorieBuddy</span
+						>
 					</p>
 					<p class="text-xs lg:text-sm font-bold">
 						Aug. 2023 / Mobile App
-						<span class="text-3xl lg:text-6xl font-thin">MyCalorieBuddy</span>
+						<span
+							class="text-3xl lg:text-6xl font-thin hover:text-neutral-500 cursor-pointer duration-300 transition-colors"
+							>MyCalorieBuddy</span
+						>
 					</p>
 				</div>
 			</div>
@@ -67,6 +120,6 @@
 			defer
 			src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
 		></script>
-		<script src="/vite-project/main.js"></script>
+		<script type="module" src="main.js"></script>
 	</body>
 </html>
