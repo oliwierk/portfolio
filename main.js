@@ -1,3 +1,5 @@
+import * as THREE from "three";
+
 document.addEventListener("DOMContentLoaded", () => {
 	const themeToggles = document.querySelectorAll(".theme-controller");
 
@@ -25,11 +27,32 @@ document.addEventListener("DOMContentLoaded", () => {
 	});
 });
 
-function navigation() {
-	return {
-		currentPath: "",
-		getCurrentPath() {
-			this.currentPath = window.location.pathname;
-		},
-	};
-}
+// const scene = new THREE.Scene();
+// const camera = new THREE.PerspectiveCamera(
+// 	20,
+// 	window.innerWidth / window.innerHeight,
+// 	0.1,
+// 	1000
+// );
+
+// const renderer = new THREE.WebGLRenderer();
+// renderer.setSize(window.innerWidth, window.innerHeight);
+// document.body.appendChild(renderer.domElement);
+
+// const geometry = new THREE.TorusKnotGeometry(14, 1, 5, 16);
+// const material = new THREE.MeshBasicMaterial({ color: 0xbb0000 });
+// const torusKnot = new THREE.Mesh(geometry, material);
+// scene.add(torusKnot);
+
+// camera.position.z = 125;
+
+// function animate() {
+// 	requestAnimationFrame(animate);
+
+// 	torusKnot.rotation.x += 0.01;
+// 	torusKnot.rotation.y += 0.01;
+
+// 	renderer.render(scene, camera);
+// }
+
+// animate();
