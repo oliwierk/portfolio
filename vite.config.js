@@ -13,7 +13,7 @@ export default defineConfig({
 				index: path.resolve(__dirname, "index.html"),
 				projects: path.resolve(__dirname, "projects.html"),
 				timeline: path.resolve(__dirname, "timeline.html"),
-				contact: path.resolve(__dirname, " contact.html"),
+				contact: path.resolve(__dirname, "contact.html"),
 				// Dodaj więcej stron, jeśli to konieczne
 			},
 			// Opcje dotyczące podziału kodu, jeśli potrzebujesz

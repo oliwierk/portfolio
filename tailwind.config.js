@@ -4,6 +4,7 @@ export default {
 		"./index.html",
 		"./projects.html",
 		"./timeline.html",
+		"./contact.html",
 		"./src/**/*.{js,ts,jsx,tsx}",
 	],
 	theme: {
