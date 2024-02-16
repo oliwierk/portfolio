@@ -27,32 +27,50 @@ document.addEventListener("DOMContentLoaded", () => {
 	});
 });
 
-// const scene = new THREE.Scene();
-// const camera = new THREE.PerspectiveCamera(
-// 	20,
-// 	window.innerWidth / window.innerHeight,
-// 	0.1,
-// 	1000
-// );
+const container = document.getElementById("threejs-background");
+const canvas = document.getElementById("threejs-canvas"); // Pobierz canvas po ID
 
-// const renderer = new THREE.WebGLRenderer();
-// renderer.setSize(window.innerWidth, window.innerHeight);
-// document.body.appendChild(renderer.domElement);
+// Ustawienia sceny i kamery
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(
+	20,
+	container.offsetWidth / container.offsetHeight,
+	0.1,
+	1000
+);
 
-// const geometry = new THREE.TorusKnotGeometry(14, 1, 5, 16);
-// const material = new THREE.MeshBasicMaterial({ color: 0xbb0000 });
-// const torusKnot = new THREE.Mesh(geometry, material);
-// scene.add(torusKnot);
+// Ustawienia renderera
+const renderer = new THREE.WebGLRenderer({
+	canvas: canvas, // Użyj istniejącego elementu canvas
+	alpha: true, // Ustawienie alpha: true czyni tło przezroczystym
+});
+renderer.setSize(container.offsetWidth, container.offsetHeight);
+renderer.setClearColor(0x000000, 0); // Przezroczyste tło
 
-// camera.position.z = 125;
+// Tworzenie geometrii i materiału
+const geometry = new THREE.TorusKnotGeometry(14, 1, 5, 16);
+const material = new THREE.MeshBasicMaterial({ color: 0xbb0000 });
+const torusKnot = new THREE.Mesh(geometry, material);
+scene.add(torusKnot);
 
-// function animate() {
-// 	requestAnimationFrame(animate);
+// Ustawienie kamery
+camera.position.z = 150;
 
-// 	torusKnot.rotation.x += 0.01;
-// 	torusKnot.rotation.y += 0.01;
+// Funkcja animująca
+function animate() {
+	requestAnimationFrame(animate);
 
-// 	renderer.render(scene, camera);
-// }
+	torusKnot.rotation.x += 0.01;
+	torusKnot.rotation.y += 0.01;
 
-// animate();
+	renderer.render(scene, camera);
+}
+
+animate();
+
+// Dostosowanie renderer do zmian rozmiaru kontenera
+window.addEventListener("resize", () => {
+	camera.aspect = container.offsetWidth / container.offsetHeight;
+	camera.updateProjectionMatrix();
+	renderer.setSize(container.offsetWidth, container.offsetHeight);
+});

@@ -8,9 +8,9 @@
 		<link rel="stylesheet" href="./style.css" />
 	</head>
 	<body>
-		<div class="w-full h-screen p-5 lg:p-8 fixed">
+		<div class="w-full h-screen p-5 lg:p-8 fixed overflow-hidden">
 			<label
-				class="absolute -left-3 bottom-14 -rotate-90 font-thin cursor-pointer"
+				class="absolute -left-5 lg:-left-3 bottom-14 -rotate-90 font-thin cursor-pointer"
 			>
 				LIGHT
 				<input
@@ -22,7 +22,7 @@
 				/>
 			</label>
 			<label
-				class="absolute -left-2.5 bottom-32 -rotate-90 font-thin cursor-pointer"
+				class="absolute -left-5 lg:-left-2.5 bottom-32 -rotate-90 font-thin cursor-pointer"
 			>
 				DARK
 				<input
@@ -37,6 +37,10 @@
 				class="w-full h-full p-5 lg:p-8 border-2 border-neutral-700 relative"
 				id="threejs-background"
 			>
+				<canvas
+					class="block top-0 left-0 absolute -z-10"
+					id="threejs-canvas"
+				></canvas>
 				<h1 class="text-3xl lg:text-7xl tracking-wider font-thin">
 					Oliwier Kotlicki
 				</h1>
@@ -56,7 +60,6 @@
 						:class="{'dot': activePath === '/', 'hidden': activePath !== '/'}"
 						href=""
 					></div>
-
 					<a
 						:class="{'hidden': activePath === '/projects.html'}"
 						class="font-bold text-xs lg:text-sm hover:text-neutral-400 transition-colors duration-300"
@@ -94,7 +97,7 @@
 				<div
 					class="w-1/2 text-right flex flex-col gap-6 absolute right-5 lg:right-8"
 				>
-					<p>Contact</p>
+					<a href="https://github.com/oliwierk">github</a>
 				</div>
 			</div>
 		</div>
