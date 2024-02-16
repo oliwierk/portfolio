@@ -2,21 +2,16 @@ import { defineConfig } from "vite";
 import path from "path";
 
 export default defineConfig({
-	// Konfiguracja ścieżek bazowych, użyteczna gdy aplikacja jest serwowana z podkatalogu
 	base: "./",
 	build: {
-		// Wyjście buildu do określonego katalogu
 		outDir: "dist",
 		rollupOptions: {
-			// Określ wejścia dla różnych stron HTML
 			input: {
 				index: path.resolve(__dirname, "index.html"),
 				projects: path.resolve(__dirname, "projects.html"),
 				timeline: path.resolve(__dirname, "timeline.html"),
 				contact: path.resolve(__dirname, "contact.html"),
-				// Dodaj więcej stron, jeśli to konieczne
 			},
-			// Opcje dotyczące podziału kodu, jeśli potrzebujesz
 			output: {
 				chunkFileNames: "js/[name]-[hash].js",
 				entryFileNames: "js/[name]-[hash].js",
@@ -24,9 +19,8 @@ export default defineConfig({
 			},
 		},
 	},
-	// Opcje serwera deweloperskiego, jeśli chcesz je dostosować
+
 	server: {
-		port: 3000, // Możesz ustawić port, na którym uruchomiony będzie serwer deweloperski
+		port: 3000,
 	},
-	// Dodaj dodatkowe wtyczki Vite tutaj, jeśli są potrzebne
 });
