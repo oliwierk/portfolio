@@ -27,50 +27,50 @@ document.addEventListener("DOMContentLoaded", () => {
 	});
 });
 
-const container = document.getElementById("threejs-background");
-const canvas = document.getElementById("threejs-canvas"); // Pobierz canvas po ID
+// const container = document.getElementById("threejs-background");
+// const canvas = document.getElementById("threejs-canvas"); // Pobierz canvas po ID
 
-// Ustawienia sceny i kamery
-const scene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera(
-	20,
-	container.offsetWidth / container.offsetHeight,
-	0.1,
-	1000
-);
+// // Ustawienia sceny i kamery
+// const scene = new THREE.Scene();
+// const camera = new THREE.PerspectiveCamera(
+// 	20,
+// 	container.offsetWidth / container.offsetHeight,
+// 	0.1,
+// 	1000
+// );
 
-// Ustawienia renderera
-const renderer = new THREE.WebGLRenderer({
-	canvas: canvas, // Użyj istniejącego elementu canvas
-	alpha: true, // Ustawienie alpha: true czyni tło przezroczystym
-});
-renderer.setSize(container.offsetWidth, container.offsetHeight);
-renderer.setClearColor(0x000000, 0); // Przezroczyste tło
+// // Ustawienia renderera
+// const renderer = new THREE.WebGLRenderer({
+// 	canvas: canvas, // Użyj istniejącego elementu canvas
+// 	alpha: true, // Ustawienie alpha: true czyni tło przezroczystym
+// });
+// renderer.setSize(container.offsetWidth, container.offsetHeight);
+// renderer.setClearColor(0x000000, 0); // Przezroczyste tło
 
-// Tworzenie geometrii i materiału
-const geometry = new THREE.TorusKnotGeometry(14, 1, 5, 16);
-const material = new THREE.MeshBasicMaterial({ color: 0xbb0000 });
-const torusKnot = new THREE.Mesh(geometry, material);
-scene.add(torusKnot);
+// // Tworzenie geometrii i materiału
+// const geometry = new THREE.TorusKnotGeometry(14, 1, 5, 16);
+// const material = new THREE.MeshBasicMaterial({ color: 0xbb0000 });
+// const torusKnot = new THREE.Mesh(geometry, material);
+// scene.add(torusKnot);
 
-// Ustawienie kamery
-camera.position.z = 150;
+// // Ustawienie kamery
+// camera.position.z = 150;
 
-// Funkcja animująca
-function animate() {
-	requestAnimationFrame(animate);
+// // Funkcja animująca
+// function animate() {
+// 	requestAnimationFrame(animate);
 
-	torusKnot.rotation.x += 0.01;
-	torusKnot.rotation.y += 0.01;
+// 	torusKnot.rotation.x += 0.01;
+// 	torusKnot.rotation.y += 0.01;
 
-	renderer.render(scene, camera);
-}
+// 	renderer.render(scene, camera);
+// }
 
-animate();
+// animate();
 
-// Dostosowanie renderer do zmian rozmiaru kontenera
-window.addEventListener("resize", () => {
-	camera.aspect = container.offsetWidth / container.offsetHeight;
-	camera.updateProjectionMatrix();
-	renderer.setSize(container.offsetWidth, container.offsetHeight);
-});
+// // Dostosowanie renderer do zmian rozmiaru kontenera
+// window.addEventListener("resize", () => {
+// 	camera.aspect = container.offsetWidth / container.offsetHeight;
+// 	camera.updateProjectionMatrix();
+// 	renderer.setSize(container.offsetWidth, container.offsetHeight);
+// });

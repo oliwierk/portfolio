@@ -3,7 +3,7 @@ import * as THREE from "three";
 let scene, camera, points;
 
 const container = document.getElementById("threejs-background");
-const canvas = document.getElementById("threejs-canvas"); // Pobierz canvas po ID
+const canvas = document.getElementById("threejs-canvas");
 scene = new THREE.Scene();
 camera = new THREE.PerspectiveCamera(
 	75,
@@ -12,11 +12,11 @@ camera = new THREE.PerspectiveCamera(
 	1000
 );
 const renderer = new THREE.WebGLRenderer({
-	canvas: canvas, // Użyj istniejącego elementu canvas
-	alpha: true, // Ustawienie alpha: true czyni tło przezroczystym
+	canvas: canvas,
+	alpha: true,
 });
 renderer.setSize(container.offsetWidth, container.offsetHeight);
-renderer.setClearColor(0x000000, 0); // Przezroczyste tło
+renderer.setClearColor(0x000000, 0);
 
 const geometry = new THREE.BufferGeometry();
 const vertices = [];
